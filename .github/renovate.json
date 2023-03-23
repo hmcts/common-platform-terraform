@@ -1,0 +1,63 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":disableRateLimiting",
+        ":dependencyDashboard"
+    ],
+    "baseBranches": [
+        "master"
+    ],
+    "ignoreUnstable": true,
+    "rebaseWhen": "conflicted",
+    "rebaseLabel": "renovate/rebase",
+    "stopUpdatingLabel": "renovate/stop-updating",
+    "recreateClosed": true,
+    "packageRules": [
+        {
+            "matchDatasources": [
+                "github-releases",
+                "github-tags"
+            ],
+            "matchUpdateTypes": [
+                "pin",
+                "digest",
+                "patch",
+                "minor",
+                "major"
+            ],
+            "automerge": false
+        },
+        {
+            "enabled": true,
+            "matchDatasources": [
+                "github-releases"
+            ],
+            "matchPackageNames": [
+                "antonbabenko/pre-commit-terraform"
+            ],
+            "extractVersion": "^(?<version>v\\d+\\.\\d+\\.\\d+)$",
+            "versioning": "regex:^v(?<major>\\d+)(\\.(?<minor>\\d+)\\.(?<patch>\\d+))?$"
+        },
+        {
+            "enabled": true,
+            "matchDatasources": [
+                "github-tags"
+            ],
+            "matchPackageNames": [
+                "hmcts/pre-commit-hooks"
+            ],
+            "extractVersion": "^(?<version>.*)$"
+        }
+    ],
+    "regexManagers": [
+        {
+            "fileMatch": [
+                "^.pre-commit-config.yaml$"
+            ],
+            "matchStrings": [
+                "#\\s+renovate:\\s+datasource=(?<datasource>.*?)\\n(.*?)https:\\/\\/github.com\\/(?<depName>.*?)\\n(.*?)rev:\\s+(?<currentValue>.*?)\\n"
+            ]
+        }
+    ]
+}
