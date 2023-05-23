@@ -94,15 +94,6 @@ parameters:
       dependsOn: 'Precheck'
       pipeline_tests: true
 
-    - deployment: 'sbox_apim_appgw'
-      environment: 'sbox'
-      component: 'apim-appgw'
-      service_connection: 'HMCTS-HUB-SBOX-INTSVC-cnp'
-      storage_account_rg: 'core-infra-sbox-rg'
-      storage_account_name: 'cftappssbox'
-      dependsOn: 'Precheck'
-      pipeline_tests: true
-
     - deployment: 'ptl_dynatrace_activegate'
       environment: 'ptl'
       component: 'dynatrace_activegate'
