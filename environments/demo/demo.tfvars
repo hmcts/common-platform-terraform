@@ -1,6 +1,6 @@
 env                    = "demo"
 subscription           = "demo"
-cft_apps_cluster_ips   = ["10.50.79.221", "10.50.95.221"]
+cft_apps_cluster_ips   = ["10.50.95.221"]
 certificate_name_check = false
 autoShutdown           = true
 
