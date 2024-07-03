@@ -2358,4 +2358,12 @@ frontends = [
       }
     ]
   },
+  {
+    product        = "em"
+    name           = "em-icp"
+    mode           = "Detection"
+    custom_domain  = "em-icp.ithc.platform.hmcts.net"
+    dns_zone_name  = "ithc.platform.hmcts.net"
+    backend_domain = ["firewall-nonprodi-palo-cftithc.uksouth.cloudapp.azure.com"]
+  },
 ]
