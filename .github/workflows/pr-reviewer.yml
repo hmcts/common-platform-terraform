@@ -89,9 +89,10 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
+            const updatedBody = '## 🤖AEP PR REVIEW🤖\n\n_I\'m a bot that generates AI reviews of pull requests, see [AEP](https://kainossoftwareltd.github.io/ai-enhanced-platform/) for more details_\n\n' + process.env.response;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: process.env.response
+              body: updatedBody
             })
