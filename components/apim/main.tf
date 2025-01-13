@@ -27,3 +27,9 @@ resource "azurerm_api_management_named_value" "environment" {
   display_name        = "environment"
   value               = var.env
 }
+
+
+import {
+  to = module.api-mgmt.azurerm_api_management_diagnostic.apim
+  id = "/subscriptions/8a07fdcd-6abd-48b3-ad88-ff737a4b9e3c/resourceGroups/cft-perftest-network-rg/providers/Microsoft.ApiManagement/service/cft-api-mgmt-test/diagnostics/applicationinsights"
+}
