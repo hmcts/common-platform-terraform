@@ -1,5 +1,5 @@
 locals {
-  shutter_apps = [for k, v in var.frontends : v if lookup(v, "shutter_app", true)]
+  shutter_apps = [for k, v in var.frontends : v if lookup(v, "shutter_app", false)]
 }
 module "static_webapp" {
   providers = {
@@ -7,7 +7,7 @@ module "static_webapp" {
     azurerm.dnszone = azurerm.dnszone
   }
 
-  source              = "git::https://github.com/hmcts/terraform-module-shutter-static-webapp.git?ref=master"
+  source              = "git::https://github.com/hmcts/terraform-module-shutter-static-webapp.git?ref=endakelly-patch-1"
   shutter_apps        = local.shutter_apps
   tags                = module.ctags.common_tags
   resource_group_name = azurerm_resource_group.rg.name
