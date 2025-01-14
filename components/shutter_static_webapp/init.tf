@@ -5,7 +5,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "3.65.0" # we have to keep this to 3.65 as there are problems related to  Failure sending request: StatusCode=429 -- Original Error: context deadline exceeded
+      version = "3.117.0" # we have to keep this to 3.65 as there are problems related to  Failure sending request: StatusCode=429 -- Original Error: context deadline exceeded
     }
   }
 }
