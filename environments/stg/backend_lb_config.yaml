@@ -374,6 +374,8 @@ gateways:
       - product: civil
         component: orchestrator-service
       - product: civil
+        component: rtl-export
+      - product: civil
         component: sdt
       - product: civil
         component: sdt-commissioning
